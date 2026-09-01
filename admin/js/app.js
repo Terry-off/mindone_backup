@@ -431,6 +431,37 @@
     global.addEventListener('gh:staged-changed', refreshStagedBar);
   }
 
+  // 게시 확인창(브라우저 기본 confirm 대신 화면 안에 표시 — 어떤 환경에서도 동작)
+  function confirmPublish(list) {
+    return new Promise(function (resolve) {
+      var overlay = document.createElement('div');
+      overlay.className = 'modal-overlay';
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9999';
+      var items = list.map(function (i) {
+        return '<li style="margin:4px 0">' + (i.label || i.path).replace(/[<>&]/g, '') + '</li>';
+      }).join('');
+      var box = document.createElement('div');
+      box.style.cssText = 'background:#fff;border-radius:10px;padding:24px;max-width:520px;width:90%;max-height:80vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.25)';
+      box.innerHTML =
+        '<h3 style="margin:0 0 12px;font-size:18px">다음 ' + list.length + '건을 사이트에 반영합니다</h3>' +
+        '<ul style="margin:0 0 16px;padding-left:20px;color:#555;font-size:14px">' + items + '</ul>' +
+        '<p style="margin:0 0 18px;color:#777;font-size:13px">반영까지 보통 1~3분, 최대 10분 정도 걸립니다.</p>' +
+        '<div style="display:flex;gap:8px;justify-content:flex-end">' +
+        '<button type="button" data-act="cancel" style="padding:9px 18px;border:1px solid #ddd;background:#fff;border-radius:6px;cursor:pointer">취소</button>' +
+        '<button type="button" data-act="ok" style="padding:9px 20px;border:0;background:#ff6000;color:#fff;border-radius:6px;font-weight:600;cursor:pointer">게시하기</button>' +
+        '</div>';
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+      function done(v) { try { document.body.removeChild(overlay); } catch (e) {} resolve(v); }
+      box.addEventListener('click', function (ev) {
+        var act = ev.target && ev.target.getAttribute('data-act');
+        if (act === 'ok') done(true);
+        else if (act === 'cancel') done(false);
+      });
+      overlay.addEventListener('click', function (ev) { if (ev.target === overlay) done(false); });
+    });
+  }
+
   function doPublish() {
     if (publishing) return;
     if (!global.GH) return;
@@ -438,10 +469,12 @@
     try { list = global.GH.stagedList(); } catch (e) { list = []; }
     if (!list.length) return;
 
-    var names = list.map(function (i) { return '- ' + (i.label || i.path); }).join('\n');
-    var ok = confirm('다음 ' + list.length + '건을 게시합니다:\n' + names);
-    if (!ok) return;
+    confirmPublish(list).then(function (ok) {
+      if (ok) startPublish(list);
+    });
+  }
 
+  function startPublish(list) {
     publishing = true;
     refreshStagedBar();
     setPublishStatus('게시 중...');

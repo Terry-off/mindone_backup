@@ -19,7 +19,7 @@ window.__POPUPS = [
     "left": 50,
     "top": 100,
     "start": "2020-01-01",
-    "end": "2099-11-30",
+    "end": "2099-12-31",
     "enabled": true,
     "hideDays": 1
   }
