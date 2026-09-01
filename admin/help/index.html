@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>토큰 발급 방법 안내 — 마인드원치과 백업 사이트 관리자</title>
+<link rel="stylesheet" href="../css/admin.css">
+<style>
+  .help-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  .help-back { display: inline-block; margin-bottom: 18px; font-size: 13.5px; }
+  .help-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .help-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+
+  .step-list { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-body { flex: 1; min-width: 0; }
+  .step-title { font-weight: 800; font-size: 15.5px; margin-bottom: 6px; }
+  .step-desc { font-size: 13.8px; color: #444; line-height: 1.7; }
+  .step-desc p + p { margin-top: 8px; }
+
+  kbd, .path {
+    display: inline-block;
+    background: #f2f2f4;
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 12.8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: #333;
+  }
+
+  .value-box {
+    display: inline-block;
+    background: var(--accent-light);
+    border: 1px solid #ffd2ac;
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-weight: 700;
+    color: var(--accent-dark);
+    font-size: 12.8px;
+  }
+
+  .note-box {
+    margin-top: 30px;
+    background: var(--warn-bg);
+    border: 1px solid #f0e0ab;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .note-box h3 { font-size: 14.5px; margin-bottom: 8px; color: #7a5f10; }
+  .note-box p { font-size: 13.5px; color: #5c4a13; line-height: 1.7; }
+
+  .danger-box {
+    margin-top: 16px;
+    background: var(--danger-bg);
+    border: 1px solid #f4c9c5;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .danger-box h3 { font-size: 14.5px; margin-bottom: 8px; color: var(--danger); }
+  .danger-box p { font-size: 13.5px; color: #7a2820; line-height: 1.7; }
+
+  ul.plain { margin: 6px 0 0 18px; padding: 0; font-size: 13.5px; color: #444; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="help-wrap">
+
+  <a class="help-back" href="../index.html">← 관리자 페이지로 돌아가기</a>
+
+  <h1 class="help-title">GitHub 토큰(PAT) 발급 방법</h1>
+  <p class="help-sub">
+    관리자 페이지는 게시할 때 이 토큰을 이용해 GitHub 저장소에 직접 저장합니다.
+    아래 순서대로 한 번만 발급받아 두면, 이후에는 로그인 화면에서 바로 사용할 수 있습니다.
+  </p>
+
+  <div class="step-list">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">github.com에 로그인합니다</div>
+        <div class="step-desc">
+          <p>웹 브라우저에서 <span class="path">github.com</span> 으로 접속한 뒤, 백업 저장소를 관리하는 계정으로 로그인합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">토큰 발급 메뉴로 이동합니다</div>
+        <div class="step-desc">
+          <p>
+            오른쪽 위 프로필 사진 클릭 → <span class="path">Settings</span> →
+            왼쪽 메뉴 맨 아래 <span class="path">Developer settings</span> →
+            <span class="path">Personal access tokens</span> →
+            <span class="path">Fine-grained tokens</span> 로 들어갑니다.
+          </p>
+          <p>
+            직접 이동하려면 주소창에
+            <span class="path">github.com/settings/tokens?type=beta</span> 를 입력해도 됩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">새 토큰을 생성합니다</div>
+        <div class="step-desc">
+          <p><span class="path">Generate new token</span> 버튼을 누른 뒤, 아래 값으로 설정합니다.</p>
+          <ul class="plain">
+            <li>Token name: <span class="value-box">minddent-admin</span></li>
+            <li>Expiration(만료 기한): 가능한 가장 긴 기간(예: 1년, No expiration이 있다면 선택 가능)</li>
+            <li>Repository access: <span class="value-box">Only select repositories</span> 선택 후, 이 백업 사이트가 있는 저장소를 목록에서 선택</li>
+            <li>Permissions → Repository permissions에서 <span class="value-box">Contents</span> 항목을 찾아
+              <span class="value-box">Read and write</span> 로 설정</li>
+          </ul>
+          <p>다른 권한 항목은 건드리지 않아도 됩니다. 맨 아래 <span class="path">Generate token</span> 버튼을 누릅니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">생성된 토큰을 복사해 관리자 페이지에 붙여넣습니다</div>
+        <div class="step-desc">
+          <p>
+            토큰은 <span class="path">github_pat_...</span> 형태의 긴 문자열로 한 번만 화면에 표시됩니다.
+            <span class="value-box">Copy</span> 버튼으로 복사한 뒤, 관리자 페이지 로그인 화면의
+            "Personal Access Token" 입력란에 붙여넣고 <span class="path">연결하기</span>를 누릅니다.
+          </p>
+          <p>이 화면을 나가면 토큰을 다시 볼 수 없으니, 붙여넣기 전에 다른 창을 닫지 마세요.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note-box">
+    <h3>토큰이 만료되었을 때 나타나는 증상</h3>
+    <p>
+      게시하기를 눌렀을 때 <b>"토큰이 만료되었거나 권한이 없습니다"</b> 라는 메시지가 뜨면
+      토큰이 만료되었거나 저장소 접근 권한이 변경된 것입니다.
+      이 경우 위 1~4단계를 다시 진행해 새 토큰을 발급받은 뒤,
+      관리자 페이지의 <b>설정</b> 탭에서 토큰을 새로 입력하고 <span class="path">연결 테스트</span>를 눌러 확인해주세요.
+    </p>
+  </div>
+
+  <div class="danger-box">
+    <h3>토큰 보관 시 주의사항</h3>
+    <p>
+      이 토큰은 비밀번호와 동일하게 취급해야 합니다. 캡처, 메신저, 이메일 등으로 다른 사람에게 전달하지 마세요.
+      토큰이 유출되었다고 의심되면 GitHub의 토큰 목록에서 즉시 <b>Delete(삭제)</b> 한 뒤 새로 발급받으세요.
+      관리자 페이지는 이 컴퓨터의 브라우저 저장소에만 토큰을 보관하며, 별도의 서버로 전송하지 않습니다.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

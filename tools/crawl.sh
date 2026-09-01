@@ -10,13 +10,13 @@ mkdir -p "$RAW/pages" "$RAW/posts"
 
 fetch() { # $1=url $2=outfile
   local code
-  code=$(curl -sS -A "$UA" -H "Accept-Language: ko-KR,ko;q=0.9" -o "$2" -w "%{http_code}" "$1")
+  code=$(curl -sSL -A "$UA" -H "Accept-Language: ko-KR,ko;q=0.9" -o "$2" -w "%{http_code}" "$1")
   local size=$(stat -c%s "$2" 2>/dev/null || echo 0)
   echo "[$code] $(basename "$2") ${size}B  $1"
   if [ "$code" != "200" ] || [ "$size" -lt 1000 ]; then
     echo "RETRY $1"
     sleep 2
-    code=$(curl -sS -A "$UA" -H "Accept-Language: ko-KR,ko;q=0.9" -o "$2" -w "%{http_code}" "$1")
+    code=$(curl -sSL -A "$UA" -H "Accept-Language: ko-KR,ko;q=0.9" -o "$2" -w "%{http_code}" "$1")
     echo "[retry:$code] $(basename "$2") $(stat -c%s "$2" 2>/dev/null || echo 0)B"
   fi
   sleep 0.4

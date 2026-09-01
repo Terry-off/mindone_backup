@@ -21,14 +21,15 @@ $PAGES{$_}{board} = $BOARD_OF{$_} for keys %BOARD_OF;
 my (%map, %imap);
 open my $mf, '<', $MAP or die "asset_map.tsv 없음: $MAP";
 while (<$mf>) { chomp; my ($u,$l) = split /\t/; next unless $u && $l;
-  if ($u =~ /cdninstagram\.com/) { $imap{$u} = $l } else { $map{$u} = $l } }
+  if ($u =~ /cdninstagram\.com/) { $imap{$u} = $l; (my $d = $u) =~ s/&amp;/&/g; $imap{$d} = $l; }
+  else { $map{$u} = $l } }
 close $mf;
 print "asset map: ".(scalar keys %map)." imweb + ".(scalar keys %imap)." insta\n";
 
 # ---------- 제거 목록 ----------
 my @STRIP_SRC = ('wcs.naver.net','static.imweb.me/analytics-sdk','crm-onsite.imweb.me',
   'static-cdn.crm.imweb.me','oms-shop-bridge','/_/oms-customer-front-office','/_/fo-shopping/',
-  't1.kakaocdn.net','/js/init_datadog_rum.js','/js/imweb_external_sdk.js');
+  't1.kakaocdn.net','/js/init_datadog_rum.js','/js/imweb_external_sdk.js','/js/brandscope.js');
 my @STRIP_LINK = ('/_/fo-shopping/','oms-customer-front-office');
 my @STRIP_INLINE = ('deploy_strategy.js','magnet-shell.js','magnet/magnet.js','IMIO-7835',
   'load_change_password.cm','wcs_add','wcs.naver');
@@ -66,8 +67,13 @@ for my $key (sort keys %PAGES) {
   $n{cdn} += ($h =~ s{(https?://(?:vendor-cdn|cdn|cdn-optimized)\.imweb\.me/[^"'()<>\s\\&]+?)(\?[0-9]+)?(?=["'()<>\s\\&])}{
       exists $map{$1} ? $P.$map{$1} : $1.($2//'') }ge);
 
+  # 4b2) 인라인 JSON 설정 속 이스케이프 URL (https:\/\/cdn.imweb.me\/...)
+  $n{cdnesc} += ($h =~ s{(https?:\\/\\/(?:vendor-cdn|cdn|cdn-optimized)\.imweb\.me\\/[^"'()<>\s&]+?)(\?[0-9]+)?(?=["'()<>\s&])}{
+      my ($u,$q)=($1,$2); (my $uu=$u) =~ s{\\/}{/}g;
+      exists $map{$uu} ? $P.$map{$uu} : $u.($q//'') }ge);
+
   # 4c) 인스타그램 정확 매핑
-  $n{insta} += ($h =~ s{(https://[a-z0-9.-]*cdninstagram\.com/[^"'<>\s]+)}{
+  $n{insta} += ($h =~ s{(https://[a-z0-9.-]*cdninstagram\.com/[^"'<>\s)]+)}{
       exists $imap{$1} ? $P.$imap{$1} : $1 }ge);
 
   # 4d) 사이트 상대 에셋
@@ -99,7 +105,8 @@ for my $key (sort keys %PAGES) {
   my $binj = qq{\n<script>window.__P='$P';window.__PAGE='$key';window.__BOARD='$board';</script>\n}
     . qq{<script src='${P}data/config.js'></script>\n}
     . qq{<script src='${P}data/overrides.js'></script>\n}
-    . qq{<script src='${P}backup/js/overrides.js'></script>\n};
+    . qq{<script src='${P}backup/js/overrides.js'></script>\n}
+    . qq{<script src='${P}backup/js/fixups.js'></script>\n};
   $binj .= qq{<script src='${P}data/popups.js'></script>\n<script src='${P}backup/js/popup.js'></script>\n} if $pg->{home};
   $binj .= qq{<script src='${P}data/boards/$board.js'></script>\n<script src='${P}backup/js/boards.js'></script>\n} if $board;
   $binj .= qq{<script src='${P}data/partners.js'></script>\n<script src='${P}backup/js/partners.js'></script>\n<script src='${P}backup/js/inquiry.js'></script>\n} if $pg->{partners};

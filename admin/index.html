@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>마인드원치과 백업 사이트 관리자</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div id="file-banner" class="site-banner banner-warn" hidden>
+    로컬 파일로 열렸습니다. 게시 기능은 인터넷 연결과 GitHub 설정이 필요합니다.
+  </div>
+
+  <!-- 로그인 화면 -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1 class="login-title">마인드원치과 백업 사이트 관리자</h1>
+      <p class="login-sub">시작하려면 GitHub 저장소 정보를 입력해주세요.</p>
+
+      <form id="login-form" class="login-form" autocomplete="off">
+        <label class="field">
+          <span class="field-label">GitHub 계정(owner)</span>
+          <input type="text" id="login-owner" placeholder="예: mindone-dental" required>
+        </label>
+        <label class="field">
+          <span class="field-label">저장소(repo)</span>
+          <input type="text" id="login-repo" placeholder="예: minddent-backup" required>
+        </label>
+        <label class="field">
+          <span class="field-label">브랜치</span>
+          <input type="text" id="login-branch" placeholder="main" value="main">
+        </label>
+        <label class="field">
+          <span class="field-label">Personal Access Token</span>
+          <input type="password" id="login-token" placeholder="github_pat_..." required autocomplete="new-password">
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" id="login-noremember">
+          <span>이 컴퓨터에 저장 안 함(공용 PC에서 사용 시 체크)</span>
+        </label>
+
+        <div id="login-error" class="form-error" role="alert" hidden></div>
+
+        <button type="submit" id="login-submit" class="btn btn-primary btn-block">연결하기</button>
+      </form>
+
+      <a class="login-help-link" href="help/index.html" target="_blank" rel="noopener">토큰 발급 방법 안내 →</a>
+    </div>
+  </div>
+
+  <!-- 메인 앱 -->
+  <div id="app-shell" hidden>
+    <header class="app-header">
+      <div class="app-header-row">
+        <div class="app-title">마인드원치과 백업 사이트 관리자</div>
+        <div class="publish-bar">
+          <span id="staged-count" class="staged-count">저장 대기 0건</span>
+          <button type="button" id="publish-btn" class="btn btn-primary" disabled>게시하기</button>
+        </div>
+      </div>
+      <nav id="tab-nav" class="tab-nav" aria-label="관리 메뉴"></nav>
+      <div id="publish-status" class="publish-status"></div>
+    </header>
+
+    <main id="tab-container" class="tab-container"></main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- 로드 순서 고정: github-api → app → tab-*.js -->
+  <script src="js/github-api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/tab-popup.js"></script>
+  <script src="js/tab-board.js"></script>
+  <script src="js/tab-partner.js"></script>
+  <script src="js/tab-editor.js"></script>
+  <script src="js/tab-settings.js"></script>
+</body>
+</html>
