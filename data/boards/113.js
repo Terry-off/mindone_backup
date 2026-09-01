@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["113"] = {
+  "revision": 0,
   "boardId": "113",
   "title": "임플란트 복합치료",
   "posts": [

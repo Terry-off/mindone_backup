@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["117"] = {
+  "revision": 0,
   "boardId": "117",
   "title": "뼈재생 임플란트",
   "posts": [

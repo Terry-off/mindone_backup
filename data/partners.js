@@ -1,13 +1,14 @@
 window.__PARTNERS = {
+  "revision": 0,
   "targets": {
     "featured": ["w202508223f871e2f419b5","w20250903b4d509533c22f"],
     "logos": ["w20250822652e11a08595f","w2025090303ed2b84c6a04"]
   },
   "featured": [
-    {"name": "한국산업인력공단", "desc": "한국산업인력공단에서 열심히 일하는 직원분들과 국가자격시험을 응시하는 수험생들의든든한 구강건강 파트너로 함께합니다.", "logo": "assets/cdn/thumbnail/20250822/3a8571b67be7a.jpg"},
-    {"name": "광산구자원봉사센터", "desc": "지역사회를 위해 헌신하는 자원봉사자들을 위해 특별 의료 혜택 제공해드리고 있습니다!", "logo": "assets/cdn/thumbnail/20250822/e9c2353e6f076.jpg"},
-    {"name": "광주사회복지사협회", "desc": "타인을 돌보는 분들의 건강도 소중합니다. 복지사 전용 치료 혜택를 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/3e97ff0314021.jpg"},
-    {"name": "한국저널리스트대학교육원", "desc": "미래 언론인을 키우는 교육원 직원들의 건강한 미소를 위한 혜택을 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/c2af6a14ddaf5.jpg"}
+    {"name": "한국산업인력공단", "desc": "한국산업인력공단에서 열심히 일하는<br>직원분들과 국가자격시험을 응시하는 수험생들의<br>든든한 구강건강 파트너로 함께합니다.", "logo": "assets/cdn/thumbnail/20250822/3a8571b67be7a.jpg"},
+    {"name": "광산구자원봉사센터", "desc": "지역사회를 위해 헌신하는 자원봉사자들을 위해<br>특별 의료 혜택 제공해드리고 있습니다!", "logo": "assets/cdn/thumbnail/20250822/e9c2353e6f076.jpg"},
+    {"name": "광주사회복지사협회", "desc": "타인을 돌보는 분들의 건강도 소중합니다.<br>복지사 전용 치료 혜택를 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/3e97ff0314021.jpg"},
+    {"name": "한국저널리스트대학교육원", "desc": "미래 언론인을 키우는 교육원 직원들의<br>건강한 미소를 위한 혜택을 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/c2af6a14ddaf5.jpg"}
   ],
   "logos": [
     {"name": "", "logo": "assets/cdn/thumbnail/20251201/1a51505c92b8f.png"},

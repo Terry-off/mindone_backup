@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["108"] = {
+  "revision": 0,
   "boardId": "108",
   "title": "앞니 충치치료",
   "posts": [

@@ -68,7 +68,7 @@ for my $b (sort { $a <=> $b } keys %BOARD_TITLES) {
   my $out = "$ROOT/data/boards/$b.js";
   open my $of, '>:raw', $out or die $!;
   print $of "window.__BOARDS = window.__BOARDS || {};\n";
-  print $of "window.__BOARDS[\"$b\"] = {\n  \"boardId\": \"$b\",\n  \"title\": ".jstr($BOARD_TITLES{$b}).",\n  \"posts\": [\n";
+  print $of "window.__BOARDS[\"$b\"] = {\n  \"revision\": 0,\n  \"boardId\": \"$b\",\n  \"title\": ".jstr($BOARD_TITLES{$b}).",\n  \"posts\": [\n";
   print $of join(",\n", map {
     "    {\"idx\": \"$$_{idx}\", \"title\": ".jstr($$_{title}).", \"thumb\": ".jstr($$_{thumb}).", \"bodyHtml\": ".jstr($$_{body})."}"
   } @entries);
@@ -91,7 +91,13 @@ sub gallery_items {
     ($img) = $it =~ m{data-bg="url\(([^)]+)\)"}s unless $img;   # lazyload 미적용(숨김) 항목
     ($img) = $it =~ m{data-src="([^"]+)"}s unless $img;
     next unless $img;
-    for ($name, $desc) { $_ //= ''; s/<[^>]+>//g; s/\s+/ /g; s/^\s+|\s+$//g; }
+    # <br>은 줄바꿈이 레이아웃(캡션 높이)에 영향을 주므로 보존, 나머지 태그만 제거
+    for ($name, $desc) { $_ //= '';
+      s{<br\s*/?>}{\x00BR\x00}gi;
+      s/<[^>]+>//g;
+      s/\s+/ /g; s/^\s+|\s+$//g;
+      s{ ?\x00BR\x00 ?}{<br>}g;
+    }
     $img =~ s/^['"]|['"]$//g; $img =~ s/\?[0-9]+$//;
     my $l = exists $map{$img} ? $map{$img} : do { push @warns, $img; $img };
     push @items, { name=>$name, desc=>$desc, logo=>$l };
@@ -101,7 +107,7 @@ sub gallery_items {
 my @featured = gallery_items($p41, 'w202508223f871e2f419b5');
 my @logos    = gallery_items($p41, 'w20250822652e11a08595f');
 open my $pf, '>:raw', "$ROOT/data/partners.js" or die $!;
-print $pf "window.__PARTNERS = {\n  \"targets\": {\n    \"featured\": [\"w202508223f871e2f419b5\",\"w20250903b4d509533c22f\"],\n    \"logos\": [\"w20250822652e11a08595f\",\"w2025090303ed2b84c6a04\"]\n  },\n";
+print $pf "window.__PARTNERS = {\n  \"revision\": 0,\n  \"targets\": {\n    \"featured\": [\"w202508223f871e2f419b5\",\"w20250903b4d509533c22f\"],\n    \"logos\": [\"w20250822652e11a08595f\",\"w2025090303ed2b84c6a04\"]\n  },\n";
 print $pf "  \"featured\": [\n".join(",\n", map { "    {\"name\": ".jstr($$_{name}).", \"desc\": ".jstr($$_{desc}).", \"logo\": ".jstr($$_{logo})."}" } @featured)."\n  ],\n";
 print $pf "  \"logos\": [\n".join(",\n", map { "    {\"name\": ".jstr($$_{name}).", \"logo\": ".jstr($$_{logo})."}" } @logos)."\n  ]\n};\n";
 close $pf;

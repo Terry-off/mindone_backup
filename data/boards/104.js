@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["104"] = {
+  "revision": 0,
   "boardId": "104",
   "title": "비교정 스마일라인치료",
   "posts": [

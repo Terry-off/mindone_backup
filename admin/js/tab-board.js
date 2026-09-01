@@ -141,6 +141,9 @@
 
   // ---------- 직렬화 ----------
   function serializeBoard(id, data) {
+    // revision을 올려야 사이트 목록이 이 데이터 기준으로 다시 그려진다.
+    // (revision 0 = 아임웹 원본 카드 마크업 그대로 표시)
+    data.revision = (parseInt(data.revision, 10) || 0) + 1;
     return 'window.__BOARDS = window.__BOARDS || {};\nwindow.__BOARDS["' + id + '"] = ' + JSON.stringify(data, null, 2) + ';\n';
   }
   function stageCurrentBoard(label) {

@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["121"] = {
+  "revision": 0,
   "boardId": "121",
   "title": "깨진 앞니 치료",
   "posts": [

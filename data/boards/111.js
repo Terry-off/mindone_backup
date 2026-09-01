@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["111"] = {
+  "revision": 0,
   "boardId": "111",
   "title": "치아성형/잇몸성형",
   "posts": [

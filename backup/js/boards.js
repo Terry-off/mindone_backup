@@ -215,8 +215,12 @@
       }
 
       if (mode === 'view') {
+        // 상세 보기는 미러 HTML에 없으므로 항상 데이터로 그린다.
         renderDetail(P, wrap, board, posts, postIndex);
       } else {
+        // 목록: revision 0이면 아임웹 원본 카드 마크업을 그대로 둔다(레이아웃 100% 일치).
+        // 관리자가 글을 추가/수정하면 revision이 올라가고, 그때부터 데이터로 그린다.
+        if (!board.revision) { return; }
         renderList(P, wrap, board, posts);
       }
     } catch (e) {

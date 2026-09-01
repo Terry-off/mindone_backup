@@ -1,5 +1,6 @@
 window.__BOARDS = window.__BOARDS || {};
 window.__BOARDS["107"] = {
+  "revision": 0,
   "boardId": "107",
   "title": "앞니 공간치료",
   "posts": [
