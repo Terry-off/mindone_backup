@@ -100,6 +100,36 @@ for my $key (sort keys %PAGES) {
   my $dev_inj = qq{<script>try{window.IS_MOBILE=window.matchMedia('(max-width:767px)').matches;}catch(e){}</script>};
   $n{dev} += ($h =~ s{(window\.USE_OMS = true;\s*\}\)\(\);\s*</script>)}{$1$dev_inj}s);
 
+  # 7b) 모바일 변형 CSS 병합
+  # 아임웹은 UA에 따라 위젯 인라인 CSS(여백/폰트/높이)를 다르게 내려준다.
+  # 정적 미러는 한 벌만 서빙하므로, 모바일 UA로 받은 인라인 <style> 규칙을
+  # @media (max-width:767px) 로 감싸 뒤에 덧붙여 좁은 화면에서 원본과 동일하게 만든다.
+  my $mfile = "$ROOT/_workdir/raw/mobile/$key.html";
+  if (-s $mfile) {
+    open my $mf, '<:raw', $mfile or die $!;
+    local $/; my $mh = <$mf>; close $mf;
+    my $mcss = '';
+    while ($mh =~ m{<style[^>]*>(.*?)</style>}gs) {
+      my $blk = $1;
+      next if $blk =~ /^\s*$/;
+      # @import는 미디어쿼리 안에서 무효이므로 해당 줄만 제거(폰트는 데스크톱 것 사용)
+      $blk =~ s/\@import[^;]*;//g;
+      # 팝업 위치 CSS는 런타임이 자체 처리하므로 제외
+      $blk =~ s/[^{}]*(?:popup-banner-wrap|pop-container)[^{}]*\{[^{}]*\}//g;
+      next if $blk =~ /^\s*$/;
+      $mcss .= $blk . "\n";
+    }
+    if (length $mcss) {
+      # CDN URL 로컬화 (일반형 + 이스케이프형)
+      $mcss =~ s{(https?://(?:vendor-cdn|cdn|cdn-optimized)\.imweb\.me/[^"'()<>\s\\&]+?)(\?[0-9]+)?(?=["'()<>\s\\&])}{
+          exists $map{$1} ? $P.$map{$1} : $1.($2//'') }ge;
+      $mcss =~ s{https?://minddent\.imweb\.me}{}g;
+      $n{mcss} = 1;
+      my $inj = qq{\n<style id="mobile-variant">\@media (max-width:767px){\n$mcss\n}</style>\n};
+      $h =~ s{(</body>)}{$inj$1}s;
+    }
+  }
+
   # 8) body 끝 주입: 페이지 컨텍스트 + 데이터 + 런타임
   my $board = $pg->{board} // '';
   my $binj = qq{\n<script>window.__P='$P';window.__PAGE='$key';window.__BOARD='$board';</script>\n}
