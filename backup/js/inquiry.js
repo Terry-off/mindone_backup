@@ -19,10 +19,14 @@
 (function () {
   'use strict';
 
-  function findAncestorTag(el, tag) {
-    var node = el;
-    while (node) {
-      if (node.nodeType === 1 && node.tagName && node.tagName.toLowerCase() === tag) { return node; }
+  // 실제 마크업에서는 제출 버튼(a._input_form_submit)이 <form> 태그의 자손이 아니라
+  // 위젯 래퍼 안의 형제 요소로 존재한다(버튼 → .form.text-center → ... → 위젯 div,
+  // 그 위젯 div 하위 어딘가에 <form>이 별도로 존재). 그래서 "form 조상"이 아니라
+  // "버튼과 form을 동시에 포함하는 가장 가까운 공통 조상(위젯 스코프)"을 찾는다.
+  function findFormScope(el) {
+    var node = el.parentNode;
+    while (node && node.nodeType === 1) {
+      if (node.querySelector && node.querySelector('form')) { return node; }
       node = node.parentNode;
     }
     return null;
@@ -191,8 +195,9 @@
     try {
       var btn = document.querySelector('a._input_form_submit');
       if (!btn) { return; }
-      var form = findAncestorTag(btn, 'form');
-      if (!form) { return; }
+      var scope = findFormScope(btn);
+      if (!scope) { return; }
+      var form = scope.querySelector('form');
 
       try { btn.removeAttribute('onclick'); } catch (eRemove) {}
 
@@ -201,7 +206,7 @@
         try { e.stopImmediatePropagation(); } catch (er2) {}
 
         try {
-          var fields = collectFields(form);
+          var fields = collectFields(scope);
           var company = val(fields.company);
           var contact = val(fields.contact);
           var phones = fields.phones ? [val(fields.phones[0]), val(fields.phones[1]), val(fields.phones[2])] : ['', '', ''];
