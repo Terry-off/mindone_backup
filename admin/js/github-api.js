@@ -508,16 +508,33 @@
 
       function safeStatus(s) { try { onStatus(s); } catch (e) { /* 무시 */ } }
 
+      // Actions 기반 Pages 배포용 폴백: 최신 워크플로 실행 상태 확인
+      function actionsStatus() {
+        return ghFetch('/repos/' + state.owner + '/' + state.repo + '/actions/runs?per_page=1&branch=' + encodeURIComponent(state.branch))
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .catch(function () { return null; })
+          .then(function (data) {
+            var run = data && data.workflow_runs && data.workflow_runs[0];
+            if (!run) return null;
+            if (run.status === 'completed') return run.conclusion === 'success' ? 'built' : 'errored';
+            return 'building';
+          });
+      }
+
       function loop() {
         if (Date.now() - start >= maxMs) return Promise.resolve('timeout');
         return ghFetch('/repos/' + state.owner + '/' + state.repo + '/pages/builds/latest')
           .then(function (res) {
             if (res.ok) return res.json().catch(function () { return null; });
-            return null; // 404 등 — Pages 빌드 API를 알 수 없음(Actions 배포 등) — 계속 진행 중으로 간주
+            return null; // 404 등 — 레거시 Pages 빌드 API 없음(Actions 배포) — Actions 상태로 폴백
           })
           .catch(function () { return null; })
           .then(function (data) {
             var status = data && data.status;
+            if (status === 'built' || status === 'errored') return status;
+            return actionsStatus().then(function (as) { return as || 'building'; });
+          })
+          .then(function (status) {
             if (status === 'built') { safeStatus('built'); return 'built'; }
             if (status === 'errored') { safeStatus('errored'); return 'errored'; }
             safeStatus('building');
