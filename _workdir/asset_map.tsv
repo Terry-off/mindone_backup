@@ -1236,6 +1236,7 @@ https://vendor-cdn.imweb.me/css/ii.css	assets/vendor/css/ii.css
 https://vendor-cdn.imweb.me/css/im_component.css	assets/vendor/css/im_component.css
 https://vendor-cdn.imweb.me/css/notosanskr-hestia.css	assets/vendor/css/notosanskr-hestia.css
 https://vendor-cdn.imweb.me/css/owl.carousel1.css	assets/vendor/css/owl.carousel1.css
+https://vendor-cdn.imweb.me/css/pretendard.css	assets/vendor/css/pretendard.css
 https://vendor-cdn.imweb.me/css/roboto.css	assets/vendor/css/roboto.css
 https://vendor-cdn.imweb.me/css/site/alarm_menu.css	assets/vendor/css/site/alarm_menu.css
 https://vendor-cdn.imweb.me/css/site/bootstrap.css	assets/vendor/css/site/bootstrap.css
@@ -1437,7 +1438,9 @@ https://vendor-cdn.imweb.me/images/admin/shopping/dropdown_arrow.png	assets/vend
 https://vendor-cdn.imweb.me/images/chosen/chosen-sprite.png	assets/vendor/images/chosen/chosen-sprite.png
 https://vendor-cdn.imweb.me/images/chosen/chosen-sprite@2x.png	assets/vendor/images/chosen/chosen-sprite@2x.png
 https://vendor-cdn.imweb.me/images/common/play_icon.png	assets/vendor/images/common/play_icon.png
+https://vendor-cdn.imweb.me/images/google_icon.png	assets/vendor/images/google_icon.png
 https://vendor-cdn.imweb.me/images/icon-check.svg	assets/vendor/images/icon-check.svg
+https://vendor-cdn.imweb.me/images/kakao_icon.png	assets/vendor/images/kakao_icon.png
 https://vendor-cdn.imweb.me/images/lightgallery/loading.gif	assets/vendor/_resolved/images/lightgallery/loading.gif
 https://vendor-cdn.imweb.me/images/lightgallery/video-play.png	assets/vendor/_resolved/images/lightgallery/video-play.png
 https://vendor-cdn.imweb.me/images/lightgallery/vimeo-play.png	assets/vendor/_resolved/images/lightgallery/vimeo-play.png
@@ -1448,6 +1451,7 @@ https://vendor-cdn.imweb.me/images/main/price/free_new_bg.png	assets/vendor/imag
 https://vendor-cdn.imweb.me/images/main/price/global_new_bg.png	assets/vendor/images/main/price/global_new_bg.png
 https://vendor-cdn.imweb.me/images/main/price/pro_new_bg.png	assets/vendor/images/main/price/pro_new_bg.png
 https://vendor-cdn.imweb.me/images/main/price/starter_new_bg.png	assets/vendor/images/main/price/starter_new_bg.png
+https://vendor-cdn.imweb.me/images/naver_login2x.png	assets/vendor/images/naver_login2x.png
 https://vendor-cdn.imweb.me/images/pc_btn_npay.svg	assets/vendor/images/pc_btn_npay.svg
 https://vendor-cdn.imweb.me/images/pc_btn_talkcheckout.svg	assets/vendor/images/pc_btn_talkcheckout.svg
 https://vendor-cdn.imweb.me/images/pc_kakaopay_wish.png	assets/vendor/images/pc_kakaopay_wish.png
