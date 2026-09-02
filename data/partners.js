@@ -293,9 +293,33 @@ window.__PARTNERS = {
       "logo": "assets/cdn/thumbnail/20260609/eaa8e9f6ce9cd.png"
     },
     {
-      "name": "dfff",
-      "logo": "images/uploads/logo-20260903000321.png"
+      "name": "",
+      "logo": "images/uploads/logo-20260903002913.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002919.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002924.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002929.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002933.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002938.png"
+    },
+    {
+      "name": "",
+      "logo": "images/uploads/logo-20260903002942.png"
     }
   ],
-  "revision": 1
+  "revision": 8
 };
