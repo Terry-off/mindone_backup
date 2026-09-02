@@ -172,6 +172,9 @@
         if (cfg && typeof cfg === 'object' && els.formspree) {
           els.formspree.value = cfg.formspreeEndpoint || '';
         }
+        if (cfg && typeof cfg === 'object' && els.inquirySubject) {
+          els.inquirySubject.value = cfg.inquirySubject || '';
+        }
       })
       .catch(function (err) {
         try { console.warn('[tab-settings] data/config.js 불러오기 실패', err); } catch (e) { /* noop */ }
@@ -198,8 +201,9 @@
           cfg = { siteName: '광주 마인드원치과의원', inquiryEmail: 'minddent@naver.com', formspreeEndpoint: '' };
         }
         cfg.formspreeEndpoint = val;
+        cfg.inquirySubject = (els.inquirySubject && els.inquirySubject.value ? els.inquirySubject.value.trim() : '') || cfg.inquirySubject || '';
         var text = 'window.__CONFIG = ' + JSON.stringify(cfg, null, 2) + ';\n';
-        GH.stageText('data/config.js', text, '설정: Formspree 엔드포인트 변경');
+        GH.stageText('data/config.js', text, '설정: 문의 메일 발송 설정 변경');
         setFormspreeStatus('저장 대기 목록에 추가되었습니다.');
         alert('저장되었습니다. 상단의 [게시하기]를 눌러야 실제 사이트에 반영됩니다.');
       })
@@ -364,6 +368,10 @@
         '    <div class="ts-row">' +
         '      <label style="flex:1 1 100%;">Formspree 엔드포인트 URL <input type="url" class="ts-formspree" placeholder="https://formspree.io/f/xxxxxxx"></label>' +
         '    </div>' +
+        '    <div class="ts-row">' +
+        '      <label style="flex:1 1 100%;">발송 메일 제목 <input type="text" class="ts-inquiry-subject" placeholder="[마인드원치과] 제휴 협약 문의 - {업체명}"></label>' +
+        '      <div class="ts-help-text" style="margin-top:4px;">비워두면 기본 제목이 사용됩니다. <code>{업체명}</code> 자리에 문의하신 업체명이 자동으로 들어갑니다.</div>' +
+        '    </div>' +
         '    <button type="button" class="ts-btn ts-formspree-btn">저장</button>' +
         '    <span class="ts-status ts-formspree-status"></span>' +
         '  </div>' +
@@ -388,6 +396,7 @@
       els.status = el.querySelector('.ts-conn-status');
 
       els.formspree = el.querySelector('.ts-formspree');
+      els.inquirySubject = el.querySelector('.ts-inquiry-subject');
       els.formspreeBtn = el.querySelector('.ts-formspree-btn');
       els.formspreeStatus = el.querySelector('.ts-formspree-status');
 

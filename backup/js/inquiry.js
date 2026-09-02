@@ -165,6 +165,19 @@
     }
   }
 
+  // Formspree는 payload의 '_subject' 키를 실제 발송 메일 제목으로 사용한다.
+  // data/config.js의 inquirySubject를 관리자가 자유롭게 바꿀 수 있으며,
+  // '{업체명}' 자리표시자가 있으면 문의 업체명으로 치환하고, 없으면 뒤에 덧붙인다.
+  function buildSubject(company) {
+    var cfg = window.__CONFIG || {};
+    var tmpl = (cfg.inquirySubject && String(cfg.inquirySubject).trim())
+      || '[마인드원치과] 제휴 협약 문의 - {업체명}';
+    if (tmpl.indexOf('{업체명}') !== -1) {
+      return tmpl.replace(/\{업체명\}/g, company || '');
+    }
+    return company ? (tmpl + ' - ' + company) : tmpl;
+  }
+
   function submit(payload, form) {
     var endpoint = window.__CONFIG && window.__CONFIG.formspreeEndpoint;
     if (!endpoint) {
@@ -227,7 +240,8 @@
             '담당자명': contact,
             '연락처': phone,
             '이메일': email,
-            '문의사항': message
+            '문의사항': message,
+            '_subject': buildSubject(company)
           };
           submit(payload, form);
         } catch (eHandler) {
