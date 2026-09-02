@@ -1,80 +1,301 @@
 window.__PARTNERS = {
-  "revision": 0,
   "targets": {
-    "featured": ["w202508223f871e2f419b5","w20250903b4d509533c22f"],
-    "logos": ["w20250822652e11a08595f","w2025090303ed2b84c6a04"]
+    "featured": [
+      "w202508223f871e2f419b5",
+      "w20250903b4d509533c22f"
+    ],
+    "logos": [
+      "w20250822652e11a08595f",
+      "w2025090303ed2b84c6a04"
+    ]
   },
   "featured": [
-    {"name": "한국산업인력공단", "desc": "한국산업인력공단에서 열심히 일하는<br>직원분들과 국가자격시험을 응시하는 수험생들의<br>든든한 구강건강 파트너로 함께합니다.", "logo": "assets/cdn/thumbnail/20250822/3a8571b67be7a.jpg"},
-    {"name": "광산구자원봉사센터", "desc": "지역사회를 위해 헌신하는 자원봉사자들을 위해<br>특별 의료 혜택 제공해드리고 있습니다!", "logo": "assets/cdn/thumbnail/20250822/e9c2353e6f076.jpg"},
-    {"name": "광주사회복지사협회", "desc": "타인을 돌보는 분들의 건강도 소중합니다.<br>복지사 전용 치료 혜택를 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/3e97ff0314021.jpg"},
-    {"name": "한국저널리스트대학교육원", "desc": "미래 언론인을 키우는 교육원 직원들의<br>건강한 미소를 위한 혜택을 제공합니다!", "logo": "assets/cdn/thumbnail/20250822/c2af6a14ddaf5.jpg"}
+    {
+      "name": "한국산업인력공단",
+      "desc": "한국산업인력공단에서 열심히 일하는<br>직원분들과 국가자격시험을 응시하는 수험생들의<br>든든한 구강건강 파트너로 함께합니다.",
+      "logo": "assets/cdn/thumbnail/20250822/3a8571b67be7a.jpg"
+    },
+    {
+      "name": "광산구자원봉사센터",
+      "desc": "지역사회를 위해 헌신하는 자원봉사자들을 위해<br>특별 의료 혜택 제공해드리고 있습니다!",
+      "logo": "assets/cdn/thumbnail/20250822/e9c2353e6f076.jpg"
+    },
+    {
+      "name": "광주사회복지사협회",
+      "desc": "타인을 돌보는 분들의 건강도 소중합니다.<br>복지사 전용 치료 혜택를 제공합니다!",
+      "logo": "assets/cdn/thumbnail/20250822/3e97ff0314021.jpg"
+    },
+    {
+      "name": "한국저널리스트대학교육원",
+      "desc": "미래 언론인을 키우는 교육원 직원들의<br>건강한 미소를 위한 혜택을 제공합니다!",
+      "logo": "assets/cdn/thumbnail/20250822/c2af6a14ddaf5.jpg"
+    }
   ],
   "logos": [
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/1a51505c92b8f.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/28d3a7dd9c61d.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/a2a9e4d7e2853.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/7d8b8562913dc.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/e8532aaf1ca97.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/83fd415618203.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/71f37dce20387.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/9a0d0c5229a51.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/846d2ab06b0a3.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/954759d02090a.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/9d3b9507bb268.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/1d17c739e70cb.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/7a2b4a83b17cb.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/b2431ca589b69.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/17a286d3c7748.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/df50910963d44.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/79262f846ffd9.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/45713ca990bfe.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/81cd7c1795e7a.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/81f8dc85c47cd.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/2871ca72bdd25.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/264ea7df59dde.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/fd3298a84a58f.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/0ce4129e698a3.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/565614050acbd.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/e233115be2153.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/67a7b12007e5d.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/3dc291ab7ea48.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250822/889f68b974778.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250902/f0bfcc536cf89.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250902/ca48ffb5d3e54.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250902/da4af401ff362.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250902/6bdba8a930b33.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20250902/5503320fec883.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/77027cbf39dc3.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/c8e261c3d0dd9.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/9931ab3370275.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/cfd7d67ccc4e7.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/33900accb3673.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/db86cbe8f59c5.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/cbdf65a472a4f.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/977485baed86c.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20251201/ed6f43871ca14.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/e2449a4e079d3.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/1eb5c92c42194.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/50373e3a46404.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/03ae3ee40f585.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/27b40b97b2edd.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/b229f629602c7.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260305/54f62ff001c40.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/4feefffadc34a.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/bc6eb5e0dba65.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/89f6ec9c2fcb6.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/decf210c0a59f.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/a3ba4b398e0b1.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/bea3fe818b005.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/a3622962702d7.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/1479e8140df33.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260401/daef998f188e4.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/552e0a5decffd.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/52dbdc187e8fc.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/3b41645672b9a.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/d72e1a62b334b.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/ebdf3dad40eb8.png"},
-    {"name": "", "logo": "assets/cdn/thumbnail/20260609/eaa8e9f6ce9cd.png"}
-  ]
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/1a51505c92b8f.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/28d3a7dd9c61d.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/a2a9e4d7e2853.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/7d8b8562913dc.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/e8532aaf1ca97.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/83fd415618203.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/71f37dce20387.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/9a0d0c5229a51.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/846d2ab06b0a3.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/954759d02090a.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/9d3b9507bb268.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/1d17c739e70cb.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/7a2b4a83b17cb.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/b2431ca589b69.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/17a286d3c7748.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/df50910963d44.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/79262f846ffd9.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/45713ca990bfe.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/81cd7c1795e7a.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/81f8dc85c47cd.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/2871ca72bdd25.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/264ea7df59dde.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/fd3298a84a58f.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/0ce4129e698a3.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/565614050acbd.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/e233115be2153.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/67a7b12007e5d.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/3dc291ab7ea48.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250822/889f68b974778.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250902/f0bfcc536cf89.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250902/ca48ffb5d3e54.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250902/da4af401ff362.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250902/6bdba8a930b33.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20250902/5503320fec883.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/77027cbf39dc3.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/c8e261c3d0dd9.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/9931ab3370275.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/cfd7d67ccc4e7.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/33900accb3673.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/db86cbe8f59c5.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/cbdf65a472a4f.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/977485baed86c.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20251201/ed6f43871ca14.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/e2449a4e079d3.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/1eb5c92c42194.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/50373e3a46404.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/03ae3ee40f585.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/27b40b97b2edd.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/b229f629602c7.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260305/54f62ff001c40.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/4feefffadc34a.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/bc6eb5e0dba65.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/89f6ec9c2fcb6.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/decf210c0a59f.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/a3ba4b398e0b1.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/bea3fe818b005.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/a3622962702d7.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/1479e8140df33.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260401/daef998f188e4.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/552e0a5decffd.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/52dbdc187e8fc.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/3b41645672b9a.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/d72e1a62b334b.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/ebdf3dad40eb8.png"
+    },
+    {
+      "name": "",
+      "logo": "assets/cdn/thumbnail/20260609/eaa8e9f6ce9cd.png"
+    },
+    {
+      "name": "dfff",
+      "logo": "images/uploads/logo-20260903000321.png"
+    }
+  ],
+  "revision": 1
 };
