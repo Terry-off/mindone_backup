@@ -148,6 +148,17 @@
             container.appendChild(clone);
           } catch (eItem) { /* 개별 아이템 실패는 건너뜀 */ }
         }
+
+        // 아이템 개수가 바뀌면 열/행 폭, _gallery_row 배치, img_wrap 높이를 아임웹
+        // GALLERY2 위젯 자신의 로직으로 다시 계산해야 한다(직접 흉내내지 않는다).
+        // 각 위젯은 페이지에 'gallery_<위젯id>' 전역 인스턴스로 이미 초기화되어 있고
+        // listResize()가 화면에 보이는 열 재배치·이미지 높이 계산을 전부 수행한다.
+        try {
+          var galleryInst = window['gallery_' + widgetIds[w]];
+          if (galleryInst && typeof galleryInst.listResize === 'function') {
+            galleryInst.listResize();
+          }
+        } catch (eResize) { /* 무시 - 최소한 이미지는 채워진 상태로 남는다 */ }
       } catch (eWidget) { /* 개별 위젯 실패는 건너뜀 */ }
     }
   }
