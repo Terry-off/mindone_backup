@@ -22,5 +22,17 @@ window.__POPUPS = [
     "end": "2099-12-31",
     "enabled": true,
     "hideDays": 1
+  },
+  {
+    "id": "p1788360382795",
+    "image": "images/uploads/popup-20260902234540.jpg",
+    "link": "",
+    "width": 501,
+    "left": 1052,
+    "top": 100,
+    "start": "2026-09-02",
+    "end": "2026-09-27",
+    "enabled": true,
+    "hideDays": 1
   }
 ];
