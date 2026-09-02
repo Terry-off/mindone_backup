@@ -165,7 +165,8 @@
     }
   }
 
-  // Formspree는 payload의 '_subject' 키를 실제 발송 메일 제목으로 사용한다.
+  // Formspree는 payload의 'subject' 키(밑줄 없음)를 실제 발송 메일 제목으로 사용한다.
+  // ('_subject'는 Formspree가 인식하지 않는 잘못된 이름이었음 — 공식 문서 기준 'subject'가 맞음)
   // data/config.js의 inquirySubject를 관리자가 자유롭게 바꿀 수 있으며,
   // '{업체명}' 자리표시자가 있으면 문의 업체명으로 치환하고, 없으면 뒤에 덧붙인다.
   function buildSubject(company) {
@@ -241,7 +242,7 @@
             '연락처': phone,
             '이메일': email,
             '문의사항': message,
-            '_subject': buildSubject(company)
+            'subject': buildSubject(company)
           };
           submit(payload, form);
         } catch (eHandler) {
